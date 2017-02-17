@@ -7,9 +7,10 @@ with open ( filename ) as file:
     content = file.readlines()
 content = [ line.strip() for line in content ]
 
-while ( arg = content.pop() ):
+arg = content.pop()
+while ( len( content ) != 0 ):
     os.system( "git checkout " + arg )
-    print( "git checkout " + arg )
     input( "Press enter to continue..." )
+    arg = content.pop()
 
 print( "IT'S OVER!" )
