@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ -z $1 ]
+then
+    echo "You must specify a filename"
+    exit 1
+fi
+FILE=$1
+
+PYTHON=$(which python)
+if [ -z $PYTHON ]
+then
+    echo "You must have Python3 installed."
+    exit 1
+fi
+
+VERSION=$(python -c "import sys; print( sys.version[0] )")
+if [ "$VERSION" -lt "2" ]
+then
+    echo "You must have at least Python3 intalled."
+fi
+
+eval $PYTHON main.py $FILE
