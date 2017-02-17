@@ -1,5 +1,12 @@
 #!/bin/bash
 
+set -o errexit
+set -o nounset
+
+trap "cd /" EXIT
+
+BASEDIR=$(dirname "$0")
+
 if [ -z $1 ]
 then
     echo "You must specify a filename"
@@ -20,4 +27,4 @@ then
     echo "You must have at least Python3 intalled."
 fi
 
-eval $PYTHON main.py $FILE
+eval $PYTHON "$BASEDIR/main.py" $FILE
