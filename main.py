@@ -13,4 +13,5 @@ while ( len( content ) != 0 ):
     input( "Press enter to continue..." )
     arg = content.pop()
 
+os.system( "clear" )
 print( "IT'S OVER!" )
